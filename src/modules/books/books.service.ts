@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
+import { BookEntity } from './entities/book.entity';
 
 @Injectable()
 export class BooksService {
-  constructor() {}
-
-  findAllBooks() {
-    return [
+  stock: BookEntity[];
+  constructor() {
+    this.stock = [
       {
         id: 1,
         title: 'Harry Potter',
@@ -23,5 +23,9 @@ export class BooksService {
         autor: 'George Orwell',
       },
     ];
+  }
+
+  async findAllBooks(): Promise<BookEntity[]> {
+    return this.stock;
   }
 }
