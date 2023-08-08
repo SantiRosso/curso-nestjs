@@ -1,12 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
+import { BooksService } from './books.service';
 
 @Controller('books')
 export class BooksController {
-  constructor() {}
+  constructor(private booksService: BooksService) {}
 
   @Get()
   findAll() {
-    return 'Hola, estamos en el get de libros (findAll)';
+    const books = this.booksService.findAllBooks();
+    return books;
   }
 }
