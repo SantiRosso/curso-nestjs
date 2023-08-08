@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
-export class BookEntity {
-  id: number;
+export class CreateBookDto {
   title: string;
   author: string;
 }
